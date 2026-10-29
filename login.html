@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | MediCare+</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="about.html#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      <a href="login.html" class="btn btn-ghost btn-sm active">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close btn-icon"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="doctors.html">Find Doctors</a>
+  <a href="appointments.html">Appointments</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <div class="drawer-cta">
+    <a href="login.html" class="btn btn-outline btn-sm" style="flex:1;">Login</a>
+    <a href="register.html" class="btn btn-primary btn-sm" style="flex:1;">Register</a>
+  </div>
+</aside>
+
+<main>
+  <div class="auth-wrap">
+    <div class="auth-visual">
+      <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+      <p class="quote">"The easiest way to manage your family's <span>healthcare journey</span> — from booking to prescriptions."</p>
+      <ul class="auth-points">
+        <li><i class="fa-solid fa-circle-check"></i> 500+ verified doctors across 50+ specialties</li>
+        <li><i class="fa-solid fa-circle-check"></i> Instant appointment confirmations</li>
+        <li><i class="fa-solid fa-circle-check"></i> Secure medical records, always accessible</li>
+      </ul>
+    </div>
+    <div class="auth-panel">
+      <div class="auth-form">
+        <h1>Welcome back</h1>
+        <p>Log in to manage your appointments and health records.</p>
+
+        <button class="btn-social"><i class="fa-brands fa-google" style="color:#EA4335;"></i> Continue with Google</button>
+        <div class="auth-divider">or login with email</div>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="loginEmail">Email Address</label>
+            <div class="input-icon-wrap">
+              <i class="fa-regular fa-envelope"></i>
+              <input type="email" class="input" id="loginEmail" placeholder="you@example.com">
+            </div>
+            <span class="field-error" id="loginEmailError"><i class="fa-solid fa-circle-exclamation"></i></span>
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="input-icon-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" class="input" id="loginPassword" placeholder="Enter your password">
+              <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('loginPassword', this)"><i class="fa-regular fa-eye"></i></button>
+            </div>
+            <span class="field-error" id="loginPasswordError"><i class="fa-solid fa-circle-exclamation"></i></span>
+          </div>
+          <div class="flex-between mb-24">
+            <label class="checkbox-row" style="align-items:center;">
+              <input type="checkbox" id="rememberMe"> Remember me
+            </label>
+            <a href="#" style="font-size:.85rem; font-weight:600; color:var(--teal-700);" onclick="showToast('Password reset link sent to your email (demo).','info'); return false;">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+        </form>
+
+        <p class="auth-foot">Don't have an account? <a href="register.html">Register here</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

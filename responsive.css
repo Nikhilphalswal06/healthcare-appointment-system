@@ -1,0 +1,34 @@
+/* Global responsive tune-ups that apply across every page.
+   Component-specific breakpoints live at the bottom of their own CSS file;
+   this file covers shared layout primitives (containers, sections, footer, page-banner). */
+
+@media (max-width: 992px){
+  section{ padding: 64px 0; }
+  .footer-grid{ grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 640px){
+  .container{ padding: 0 18px; }
+  section{ padding: 48px 0; }
+  h1{ font-size: 2rem; }
+  h2{ font-size: 1.6rem; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .footer-bottom a{ margin-left:0; margin-right:16px; }
+  .page-banner{ padding: 40px 0 30px; }
+  .modal{ max-width: 94vw; }
+  .toast-stack{ left:16px; right:16px; width:auto; top:12px; }
+}
+
+@media (max-width: 420px){
+  .hero-cta{ flex-direction:column; align-items:stretch; }
+  .hero-cta .btn{ width:100%; }
+}
+
+/* Utility: hide on mobile / desktop */
+.hide-mobile{ display:initial; }
+.show-mobile{ display:none; }
+@media (max-width: 768px){
+  .hide-mobile{ display:none !important; }
+  .show-mobile{ display:initial !important; }
+}

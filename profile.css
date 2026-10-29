@@ -1,0 +1,18 @@
+.profile-header{ display:flex; align-items:center; gap:24px; padding: 32px; flex-wrap:wrap; }
+.profile-header .avatar-lg{ width:96px; height:96px; border:4px solid var(--surface); box-shadow: var(--shadow-md); }
+.profile-header .ph-info{ flex:1; min-width:220px; }
+.profile-header .ph-info h2{ margin-bottom:2px; }
+.profile-header .ph-meta{ display:flex; gap:18px; flex-wrap:wrap; margin-top:10px; font-size:.85rem; color: var(--ink-soft); }
+.profile-header .ph-meta span{ display:flex; align-items:center; gap:6px; }
+
+.profile-detail-grid{ grid-template-columns: repeat(2, 1fr); margin-top: 24px; }
+.detail-row{ padding: 16px 0; border-bottom:1px solid var(--border-soft); display:flex; justify-content:space-between; }
+.detail-row:last-child{ border-bottom:none; }
+.detail-row span{ color: var(--ink-faint); font-size:.84rem; }
+.detail-row strong{ font-size:.92rem; }
+
+.avatar-upload{ position:relative; display:inline-block; }
+.avatar-upload button{
+  position:absolute; bottom:0; right:0; width:32px; height:32px; border-radius:50%;
+  background: var(--teal-700); color:#fff; border:3px solid var(--surface); font-size:.8rem;
+}

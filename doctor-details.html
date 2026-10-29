@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Profile | MediCare+</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/doctors.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="doctors.html" class="active">Find Doctors</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="about.html#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      <a href="notifications.html" class="icon-btn" title="Notifications"><i class="fa-regular fa-bell"></i><span class="notif-dot"></span></a>
+      <div data-auth="guest" style="display:flex; gap:10px;">
+        <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+      <a href="patient-dashboard.html" data-auth="user" class="user-chip" style="display:none;">
+        <img class="avatar user-chip-avatar" src="" alt="Profile" width="30" height="30">
+        <span class="user-chip-name">Account</span>
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close btn-icon"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="doctors.html" class="active">Find Doctors</a>
+  <a href="appointments.html">Appointments</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</aside>
+
+<main id="doctorDetailsRoot">
+  <div class="page-banner" style="padding-bottom:0;">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.65rem;"></i> <a href="doctors.html">Find Doctors</a> <i class="fa-solid fa-chevron-right" style="font-size:.65rem;"></i> Profile</div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:-40px; padding-bottom:80px;">
+    <div class="card card-pad doc-hero">
+      <img class="doc-hero-photo" id="ddPhoto" src="" alt="Doctor photo">
+      <div class="doc-hero-info">
+        <h1 id="ddName"></h1>
+        <p class="text-muted" id="ddQualification" style="margin-bottom:0;"></p>
+        <div class="doc-hero-tags">
+          <span class="badge badge-teal" id="ddSpecBadge"></span>
+          <span class="badge badge-success" id="ddAvailBadge"></span>
+        </div>
+        <div id="ddRating" class="mb-16"></div>
+        <div class="doc-hero-meta">
+          <div><span>Experience</span><strong id="ddExperience"></strong></div>
+          <div><span>Consultation Fee</span><strong id="ddFee"></strong></div>
+          <div><span>Location</span><strong id="ddLocation"></strong></div>
+          <div><span>Hospital</span><strong id="ddHospital"></strong></div>
+        </div>
+      </div>
+      <div class="doc-hero-cta">
+        <a href="#" id="ddBookBtn" class="btn btn-primary btn-lg">Book Appointment</a>
+        <button class="btn btn-outline" onclick="showToast('Doctor added to favorites.','success')"><i class="fa-regular fa-heart"></i> Save</button>
+      </div>
+    </div>
+
+    <div class="details-tabs">
+      <button class="active" data-tab="tabAbout">About</button>
+      <button data-tab="tabAvailability">Availability</button>
+      <button data-tab="tabReviews">Reviews</button>
+      <button data-tab="tabSimilar">Similar Doctors</button>
+    </div>
+
+    <div class="doctors-layout" style="grid-template-columns: 1fr 320px; padding:0;">
+      <div>
+        <div class="details-panel active" id="tabAbout">
+          <div class="card card-pad mb-24">
+            <h3>About Doctor</h3>
+            <p id="ddAbout"></p>
+          </div>
+          <div class="card card-pad mb-24">
+            <h3>Education</h3>
+            <ul class="info-list" id="ddEducation"></ul>
+          </div>
+          <div class="card card-pad">
+            <h3>Services</h3>
+            <ul class="info-list" id="ddServices"></ul>
+          </div>
+        </div>
+
+        <div class="details-panel" id="tabAvailability">
+          <div class="card card-pad mb-24">
+            <h3>Available Days</h3>
+            <div class="day-pills" id="ddDays"></div>
+            <p class="text-muted">Languages spoken: <strong id="ddLanguages" style="color:var(--ink);"></strong></p>
+          </div>
+          <div class="card card-pad">
+            <h3>Sample Time Slots — Today</h3>
+            <div class="flex gap-12" style="flex-wrap:wrap;" id="ddSlots"></div>
+          </div>
+        </div>
+
+        <div class="details-panel" id="tabReviews">
+          <div class="card card-pad">
+            <h3>Patient Reviews</h3>
+            <div id="ddReviews"></div>
+          </div>
+        </div>
+
+        <div class="details-panel" id="tabSimilar">
+          <div class="grid doctor-grid" style="grid-template-columns: repeat(2,1fr);" id="ddSimilar"></div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card card-pad side-card">
+          <h4>Ready to book?</h4>
+          <p class="text-muted" style="font-size:.88rem;">Choose a convenient slot and confirm your appointment in under two minutes.</p>
+          <a href="#" id="ddBookBtn2" class="btn btn-primary btn-block">Book Appointment</a>
+          <hr class="divider">
+          <div class="flex gap-12" style="align-items:center;">
+            <i class="fa-solid fa-shield-heart" style="color:var(--teal-600); font-size:1.3rem;"></i>
+            <span class="text-muted" style="font-size:.82rem;">Verified specialist, credential-checked by MediCare+.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>&copy; <span class="current-year"></span> MediCare+. All rights reserved.</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/doctors.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

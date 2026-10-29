@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Appointment | MediCare+</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/appointment.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      <a href="notifications.html" class="icon-btn" title="Notifications"><i class="fa-regular fa-bell"></i><span class="notif-dot"></span></a>
+      <div data-auth="guest" style="display:flex; gap:10px;">
+        <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+      <a href="patient-dashboard.html" data-auth="user" class="user-chip" style="display:none;">
+        <img class="avatar user-chip-avatar" src="" alt="Profile" width="30" height="30">
+        <span class="user-chip-name">Account</span>
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close btn-icon"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="doctors.html">Find Doctors</a>
+  <a href="appointments.html">Appointments</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</aside>
+
+<main id="bookingRoot" class="booking-wrap">
+  <div class="container">
+    <div class="breadcrumb" style="color:var(--ink-faint);"><a href="index.html" style="color:var(--teal-700);">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem;"></i> <a href="doctors.html" style="color:var(--teal-700);">Find Doctors</a> <i class="fa-solid fa-chevron-right" style="font-size:.6rem;"></i> Book Appointment</div>
+    <h1 style="font-size:1.9rem; margin-bottom:28px;">Book an Appointment</h1>
+
+    <!-- Progress -->
+    <div class="progress-track">
+      <div class="progress-step active"><div class="dot">1</div><span class="label">Doctor</span></div>
+      <div class="line"></div>
+      <div class="progress-step"><div class="dot">2</div><span class="label">Type</span></div>
+      <div class="line"></div>
+      <div class="progress-step"><div class="dot">3</div><span class="label">Date</span></div>
+      <div class="line"></div>
+      <div class="progress-step"><div class="dot">4</div><span class="label">Time</span></div>
+      <div class="line"></div>
+      <div class="progress-step"><div class="dot">5</div><span class="label">Details</span></div>
+      <div class="line"></div>
+      <div class="progress-step"><div class="dot">6</div><span class="label">Confirm</span></div>
+    </div>
+
+    <div class="booking-layout">
+      <div>
+        <!-- Step 1: Doctor info -->
+        <section class="book-section active" id="step1">
+          <div class="card card-pad">
+            <h3>Your Selected Doctor</h3>
+            <div class="doc-mini" style="border:none; margin:0; padding:16px 0 0;">
+              <img class="avatar summary-doc-img" src="" alt="" style="width:72px; height:72px;">
+              <div>
+                <h4 class="summary-doc-name" style="margin-bottom:2px;"></h4>
+                <span class="text-muted summary-doc-spec"></span>
+                <div class="mt-8"><span class="badge badge-teal">Fee: <span class="summary-doc-fee"></span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="book-nav"><span></span><button class="btn btn-primary" data-next="2">Continue <i class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- Step 2: Appointment type -->
+        <section class="book-section" id="step2">
+          <div class="card card-pad">
+            <h3>Select Appointment Type</h3>
+            <div class="type-choice-grid">
+              <div class="type-choice" data-type="in-person">
+                <i class="fa-solid fa-hospital"></i>
+                <h4>In-person Visit</h4>
+                <p class="text-muted" style="margin:0;">Visit the doctor at their clinic or hospital.</p>
+              </div>
+              <div class="type-choice" data-type="video">
+                <i class="fa-solid fa-video"></i>
+                <h4>Video Consultation</h4>
+                <p class="text-muted" style="margin:0;">Consult from home via secure video call.</p>
+              </div>
+            </div>
+          </div>
+          <div class="book-nav"><button class="btn btn-outline" data-prev="1"><i class="fa-solid fa-arrow-left"></i> Back</button><button class="btn btn-primary" data-next="3">Continue <i class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- Step 3: Date -->
+        <section class="book-section" id="step3">
+          <div class="card card-pad">
+            <h3>Select Date</h3>
+            <div class="date-strip" id="dateStrip"></div>
+          </div>
+          <div class="book-nav"><button class="btn btn-outline" data-prev="2"><i class="fa-solid fa-arrow-left"></i> Back</button><button class="btn btn-primary" data-next="4">Continue <i class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- Step 4: Time slots -->
+        <section class="book-section" id="step4">
+          <div class="card card-pad">
+            <h3>Available Time Slots</h3>
+            <div class="slot-group">
+              <h4>Morning &amp; Afternoon</h4>
+              <div class="slot-grid" id="slotGrid"></div>
+            </div>
+          </div>
+          <div class="book-nav"><button class="btn btn-outline" data-prev="3"><i class="fa-solid fa-arrow-left"></i> Back</button><button class="btn btn-primary" data-next="5">Continue <i class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- Step 5: Patient info -->
+        <section class="book-section" id="step5">
+          <div class="card card-pad">
+            <h3>Patient Information</h3>
+            <form id="patientInfoForm" novalidate>
+              <div class="form-row-2">
+                <div class="field">
+                  <label for="patientName">Full Name</label>
+                  <input type="text" class="input" id="patientName" placeholder="Patient's full name">
+                  <span class="field-error" id="patientNameError"><i class="fa-solid fa-circle-exclamation"></i></span>
+                </div>
+                <div class="field">
+                  <label for="patientPhone">Phone</label>
+                  <input type="tel" class="input" id="patientPhone" maxlength="10" placeholder="98XXXXXXXX">
+                  <span class="field-error" id="patientPhoneError"><i class="fa-solid fa-circle-exclamation"></i></span>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="field">
+                  <label for="patientEmail">Email</label>
+                  <input type="email" class="input" id="patientEmail" placeholder="you@example.com">
+                  <span class="field-error" id="patientEmailError"><i class="fa-solid fa-circle-exclamation"></i></span>
+                </div>
+                <div class="field">
+                  <label for="patientAge">Age</label>
+                  <input type="number" class="input" id="patientAge" placeholder="e.g. 32">
+                  <span class="field-error" id="patientAgeError"><i class="fa-solid fa-circle-exclamation"></i></span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="patientGender">Gender</label>
+                <select class="input" id="patientGender">
+                  <option value="">Select gender</option>
+                  <option>Male</option><option>Female</option><option>Other</option>
+                </select>
+                <span class="field-error" id="patientGenderError"><i class="fa-solid fa-circle-exclamation"></i></span>
+              </div>
+              <div class="field">
+                <label for="patientReason">Reason for Visit</label>
+                <textarea class="input" id="patientReason" placeholder="Briefly describe your symptoms or reason for the visit"></textarea>
+                <span class="field-error" id="patientReasonError"><i class="fa-solid fa-circle-exclamation"></i></span>
+              </div>
+              <div class="book-nav" style="margin-top:0;">
+                <button type="button" class="btn btn-outline" data-prev="4"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <button type="submit" class="btn btn-primary">Review Summary <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- Step 6: Summary -->
+        <section class="book-section" id="step6">
+          <div class="card card-pad">
+            <h3>Appointment Summary</h3>
+            <div class="summary-row"><span>Doctor</span><strong id="sumDoctor"></strong></div>
+            <div class="summary-row"><span>Patient</span><strong id="sumPatient"></strong></div>
+            <div class="summary-row"><span>Date</span><strong id="sumDate"></strong></div>
+            <div class="summary-row"><span>Time</span><strong id="sumTime"></strong></div>
+            <div class="summary-row"><span>Appointment Type</span><strong id="sumType"></strong></div>
+            <div class="summary-total"><span>Consultation Fee</span><strong id="sumFee"></strong></div>
+          </div>
+          <div class="book-nav"><button class="btn btn-outline" data-prev="5"><i class="fa-solid fa-arrow-left"></i> Back</button><button class="btn btn-accent" id="confirmBookingBtn">Confirm Appointment <i class="fa-solid fa-check"></i></button></div>
+        </section>
+      </div>
+
+      <!-- Sticky summary sidebar -->
+      <aside class="card card-pad summary-card">
+        <div class="doc-mini">
+          <img class="avatar summary-doc-img" src="" alt="">
+          <div>
+            <h4 class="summary-doc-name" style="margin-bottom:2px; font-size:1rem;"></h4>
+            <span class="text-muted summary-doc-spec" style="font-size:.8rem;"></span>
+          </div>
+        </div>
+        <div class="summary-row"><span>Consultation Fee</span><strong class="summary-doc-fee"></strong></div>
+        <div class="summary-row"><span>Platform Fee</span><strong>₹0</strong></div>
+        <hr class="divider" style="margin:14px 0;">
+        <p class="text-muted" style="font-size:.8rem; margin:0;"><i class="fa-solid fa-shield-heart" style="color:var(--teal-600);"></i>&nbsp; Free cancellation up to 2 hours before your appointment.</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- Success modal -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-head"><h3 style="margin:0;">Booking Confirmed</h3><button class="modal-close" onclick="closeModal('successModal')"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="modal-body success-modal-body">
+      <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+      <h3>Appointment Booked!</h3>
+      <p class="text-muted">Your appointment with <strong id="successDocName" style="color:var(--ink);"></strong> is confirmed for <span id="successDateTime" style="color:var(--ink); font-weight:600;"></span>.</p>
+      <div class="appt-id-box">Appointment ID: <span id="successApptId"></span></div>
+      <div class="flex gap-12" style="justify-content:center;">
+        <a href="appointments.html" class="btn btn-outline">View Appointments</a>
+        <a href="patient-dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/appointment.js"></script>
+</body>
+</html>

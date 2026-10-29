@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | MediCare+</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .mv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .mv-card{ padding:32px; }
+  .mv-card i{ font-size:1.6rem; color:var(--teal-600); margin-bottom:14px; }
+  .team-grid{ grid-template-columns: repeat(4,1fr); }
+  .team-card{ text-align:center; padding:24px; }
+  .team-card img{ width:88px; height:88px; margin:0 auto 14px; }
+  .team-card span{ color:var(--teal-700); font-size:.82rem; font-weight:600; }
+  @media (max-width:900px){ .mv-grid{ grid-template-columns:1fr; } .team-grid{ grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      <div data-auth="guest" style="display:flex; gap:10px;">
+        <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+      <a href="patient-dashboard.html" data-auth="user" class="user-chip" style="display:none;">
+        <img class="avatar user-chip-avatar" src="" alt="Profile" width="30" height="30">
+        <span class="user-chip-name">Account</span>
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close btn-icon"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="doctors.html">Find Doctors</a>
+  <a href="appointments.html">Appointments</a>
+  <a href="about.html" class="active">About</a>
+  <a href="contact.html">Contact</a>
+</aside>
+
+<main>
+  <div class="page-banner">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.65rem;"></i> About</div>
+      <p class="eyebrow">Who we are</p>
+      <h1>Healthcare, Simplified for Everyone</h1>
+      <p>MediCare+ connects patients across Uttarakhand with verified doctors, making quality healthcare easier to find, book and manage.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container mv-grid">
+      <div class="card mv-card">
+        <i class="fa-solid fa-bullseye"></i>
+        <h3>Our Mission</h3>
+        <p>To remove the friction from booking healthcare — no phone queues, no paperwork — so people spend less time arranging care and more time getting better.</p>
+      </div>
+      <div class="card mv-card">
+        <i class="fa-regular fa-eye"></i>
+        <h3>Our Vision</h3>
+        <p>A future where every patient, in every town, can find a trusted doctor and book an appointment in under two minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface-sunk);" id="services">
+    <div class="container">
+      <div class="section-head centered">
+        <p class="eyebrow" style="justify-content:center;">Why choose us</p>
+        <h2>Built Around Patient Trust</h2>
+      </div>
+      <div class="grid why-grid">
+        <div class="card why-card"><div class="why-icon"><i class="fa-solid fa-shield-heart"></i></div><h4>Verified Doctors</h4><p>Every profile is credential-checked before it goes live.</p></div>
+        <div class="card why-card"><div class="why-icon"><i class="fa-solid fa-bolt"></i></div><h4>Easy Booking</h4><p>A guided flow that takes under two minutes, start to finish.</p></div>
+        <div class="card why-card"><div class="why-icon"><i class="fa-solid fa-lock"></i></div><h4>Secure Records</h4><p>Your medical history is encrypted and only visible to you.</p></div>
+        <div class="card why-card"><div class="why-icon"><i class="fa-solid fa-headset"></i></div><h4>24/7 Support</h4><p>Real people ready to help, any time you need it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid stats-grid">
+        <div class="stat-card"><strong>500+</strong><span>Doctors</span></div>
+        <div class="stat-card"><strong>50+</strong><span>Specializations</span></div>
+        <div class="stat-card"><strong>10K+</strong><span>Patients</span></div>
+        <div class="stat-card"><strong>25K+</strong><span>Appointments</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface-sunk);">
+    <div class="container">
+      <div class="section-head centered">
+        <p class="eyebrow" style="justify-content:center;">The people behind MediCare+</p>
+        <h2>Our Leadership Team</h2>
+      </div>
+      <div class="grid team-grid">
+        <div class="card team-card"><img class="avatar" src="https://randomuser.me/api/portraits/women/28.jpg" alt="Dr. Kavya Menon"><h4>Dr. Kavya Menon</h4><span>Chief Medical Officer</span></div>
+        <div class="card team-card"><img class="avatar" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Aditya Shah"><h4>Aditya Shah</h4><span>Co-founder & CEO</span></div>
+        <div class="card team-card"><img class="avatar" src="https://randomuser.me/api/portraits/women/56.jpg" alt="Riya Kapoor"><h4>Riya Kapoor</h4><span>Head of Patient Experience</span></div>
+        <div class="card team-card"><img class="avatar" src="https://randomuser.me/api/portraits/men/29.jpg" alt="Sameer Joshi"><h4>Sameer Joshi</h4><span>Head of Engineering</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head centered">
+        <p class="eyebrow" style="justify-content:center;">Patient stories</p>
+        <h2>What Our Patients Say</h2>
+      </div>
+      <div class="grid testi-grid" id="testimonialGrid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-band">
+      <h2>Take care of your health today.</h2>
+      <p>Join thousands of patients who manage their entire healthcare journey with MediCare+.</p>
+      <a href="doctors.html" class="btn btn-accent btn-lg">Find a Doctor</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>&copy; <span class="current-year"></span> MediCare+. All rights reserved.</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/doctors.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

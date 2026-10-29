@@ -1,0 +1,27 @@
+.records-toolbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px; flex-wrap:wrap; gap:14px; }
+.record-tabs{ display:flex; gap:8px; flex-wrap:wrap; }
+.record-tabs button{ padding: 9px 16px; border-radius: var(--radius-pill); border:1.5px solid var(--border); background: var(--surface); font-size:.83rem; font-weight:600; color: var(--ink-soft); }
+.record-tabs button.active{ background: var(--teal-700); border-color: var(--teal-700); color:#fff; }
+
+.doc-record-card{ display:flex; align-items:center; gap:16px; padding: 18px 20px; margin-bottom:12px; }
+.doc-record-card .dr-icon{ width:46px; height:46px; border-radius:12px; background: var(--teal-100); color: var(--teal-700); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.doc-record-card .dr-info{ flex:1; min-width:180px; }
+.doc-record-card .dr-info span{ font-size:.8rem; color: var(--ink-faint); }
+.doc-record-card .dr-actions{ display:flex; gap:8px; }
+
+.upload-drop{
+  border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 34px; text-align:center;
+  color: var(--ink-faint); margin-bottom: 24px; transition: border-color .2s, background .2s;
+}
+.upload-drop.dragover{ border-color: var(--teal-500); background: var(--teal-50); }
+.upload-drop i{ font-size:1.8rem; color: var(--teal-500); margin-bottom:10px; }
+
+.prescription-card{ padding: 22px; margin-bottom:16px; }
+.prescription-card .rx-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 14px; padding-bottom:14px; border-bottom:1px solid var(--border-soft); }
+.rx-medlist{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+.rx-med-row{ display:flex; justify-content:space-between; font-size:.86rem; padding:8px 12px; background: var(--surface-sunk); border-radius: var(--radius-sm); }
+.rx-med-row strong{ display:block; }
+.rx-med-row span{ color: var(--ink-faint); font-size:.78rem; }
+.rx-actions{ display:flex; gap:10px; }
+
+.rx-detail-medlist li{ display:flex; justify-content:space-between; padding: 12px 0; border-bottom:1px solid var(--border-soft); font-size:.9rem; }

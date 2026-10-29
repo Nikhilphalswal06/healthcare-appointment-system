@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prescriptions | MediCare+</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/records.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <button class="hamburger" id="sidebarToggle" aria-label="Open menu"><span></span></button>
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      <a href="notifications.html" class="icon-btn" title="Notifications"><i class="fa-regular fa-bell"></i><span class="notif-dot"></span></a>
+      <a href="profile.html" class="user-chip">
+        <img class="avatar user-chip-avatar" src="" alt="Profile" width="30" height="30">
+        <span class="user-chip-name">Account</span>
+      </a>
+    </div>
+  </div>
+</header>
+<div class="drawer-overlay"></div>
+
+<main>
+  <div class="dash-shell">
+    <aside class="sidebar">
+      <div class="side-profile">
+        <img class="avatar user-chip-avatar" src="" alt="Profile">
+        <div><strong class="user-chip-name">Patient</strong><span>View Profile</span></div>
+      </div>
+      <nav class="side-nav">
+        <a href="patient-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="appointments.html"><i class="fa-regular fa-calendar-check"></i> My Appointments</a>
+        <a href="doctors.html"><i class="fa-solid fa-user-doctor"></i> Find Doctors</a>
+        <a href="medical-records.html"><i class="fa-solid fa-file-medical"></i> Medical Records</a>
+        <a href="prescriptions.html" class="active"><i class="fa-solid fa-file-prescription"></i> Prescriptions</a>
+        <a href="notifications.html"><i class="fa-regular fa-bell"></i> Notifications</a>
+        <a href="profile.html"><i class="fa-regular fa-user"></i> Profile</a>
+        <a href="profile.html"><i class="fa-solid fa-gear"></i> Settings</a>
+        <div class="side-divider"></div>
+        <a href="#" class="logout logout-trigger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <div class="dash-main">
+      <div class="dash-topbar">
+        <div><h1>Prescriptions</h1><p>Review medicines and instructions from your past visits.</p></div>
+      </div>
+
+      <div id="prescriptionsList"></div>
+    </div>
+  </div>
+</main>
+
+<!-- Prescription view modal -->
+<div class="modal-overlay" id="rxModal">
+  <div class="modal">
+    <div class="modal-head"><h3 style="margin:0;">Prescription Details</h3><button class="modal-close" onclick="closeModal('rxModal')"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="modal-body" id="rxModalBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" onclick="closeModal('rxModal')">Close</button>
+      <button class="btn btn-primary" onclick="showToast('Prescription PDF downloaded (demo).','success')"><i class="fa-solid fa-download"></i> Download</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/records.js"></script>
+</body>
+</html>

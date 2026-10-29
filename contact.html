@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | MediCare+</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:40px; padding: 50px 0 90px; }
+  .contact-info-card{ padding:28px; margin-bottom:16px; display:flex; gap:16px; align-items:flex-start; }
+  .contact-info-card .ci-icon{ width:44px; height:44px; border-radius:12px; background:var(--teal-100); color:var(--teal-700); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  @media (max-width: 900px){ .contact-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span> MediCare+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="appointments.html">Appointments</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme"><i class="fa-regular fa-moon"></i></button>
+      <div data-auth="guest" style="display:flex; gap:10px;">
+        <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+      <a href="patient-dashboard.html" data-auth="user" class="user-chip" style="display:none;">
+        <img class="avatar user-chip-avatar" src="" alt="Profile" width="30" height="30">
+        <span class="user-chip-name">Account</span>
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close btn-icon"><i class="fa-solid fa-xmark"></i></button>
+  <a href="index.html">Home</a>
+  <a href="doctors.html">Find Doctors</a>
+  <a href="appointments.html">Appointments</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="active">Contact</a>
+</aside>
+
+<main>
+  <div class="page-banner">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.65rem;"></i> Contact</div>
+      <p class="eyebrow">We'd love to hear from you</p>
+      <h1>Get in Touch</h1>
+      <p>Questions about a booking, a doctor, or your records? Our care team typically replies within a few hours.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="card contact-info-card">
+          <div class="ci-icon"><i class="fa-solid fa-phone"></i></div>
+          <div><h4>Call Us</h4><p class="text-muted" style="margin:0;">+91 12345 67890<br>Mon–Sat, 9:00 AM – 8:00 PM</p></div>
+        </div>
+        <div class="card contact-info-card">
+          <div class="ci-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div><h4>Email Us</h4><p class="text-muted" style="margin:0;">care@medicareplus.demo<br>support@medicareplus.demo</p></div>
+        </div>
+        <div class="card contact-info-card">
+          <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div><h4>Visit Us</h4><p class="text-muted" style="margin:0;">24 Rajpur Road, Dehradun,<br>Uttarakhand 248001, India</p></div>
+        </div>
+        <div class="card contact-info-card">
+          <div class="ci-icon"><i class="fa-regular fa-clock"></i></div>
+          <div><h4>Working Hours</h4><p class="text-muted" style="margin:0;">Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 2:00 PM</p></div>
+        </div>
+      </div>
+
+      <div class="card card-pad">
+        <h3>Send us a message</h3>
+        <form id="contactForm" novalidate>
+          <div class="form-row-2">
+            <div class="field">
+              <label for="cName">Name</label>
+              <input type="text" class="input" id="cName" placeholder="Your full name">
+              <span class="field-error" id="cNameError"><i class="fa-solid fa-circle-exclamation"></i></span>
+            </div>
+            <div class="field">
+              <label for="cPhone">Phone</label>
+              <input type="tel" class="input" id="cPhone" maxlength="10" placeholder="98XXXXXXXX">
+              <span class="field-error" id="cPhoneError"><i class="fa-solid fa-circle-exclamation"></i></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cEmail">Email</label>
+            <input type="email" class="input" id="cEmail" placeholder="you@example.com">
+            <span class="field-error" id="cEmailError"><i class="fa-solid fa-circle-exclamation"></i></span>
+          </div>
+          <div class="field">
+            <label for="cSubject">Subject</label>
+            <input type="text" class="input" id="cSubject" placeholder="What's this about?">
+            <span class="field-error" id="cSubjectError"><i class="fa-solid fa-circle-exclamation"></i></span>
+          </div>
+          <div class="field">
+            <label for="cMessage">Message</label>
+            <textarea class="input" id="cMessage" placeholder="Tell us more..."></textarea>
+            <span class="field-error" id="cMessageError"><i class="fa-solid fa-circle-exclamation"></i></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>&copy; <span class="current-year"></span> MediCare+. All rights reserved.</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let valid = true;
+    const fields = [
+      ["cName","cNameError", v => v.trim().length > 2, "Enter your name"],
+      ["cPhone","cPhoneError", v => /^[0-9]{10}$/.test(v.trim()), "Enter a valid 10-digit phone number"],
+      ["cEmail","cEmailError", v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), "Enter a valid email address"],
+      ["cSubject","cSubjectError", v => v.trim().length > 3, "Enter a subject"],
+      ["cMessage","cMessageError", v => v.trim().length > 9, "Message should be at least 10 characters"]
+    ];
+    fields.forEach(([id, errId, test, msg]) => {
+      const input = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (!test(input.value)){ setFieldError(input, err, msg); valid = false; }
+      else setFieldError(input, err, "");
+    });
+    if (!valid) return;
+    showToast("Your message has been sent. We'll get back to you soon!", "success");
+    this.reset();
+  });
+</script>
+</body>
+</html>
